@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-lg-4 col-sm-12">
+                                <div class="form-group col-lg-4 col-sm-6">
                                     <label>Date</label>
                                     <input class="form-control" name="date_start" type="date" placeholder="DD/MM/YYYY" />
                                 </div>
@@ -59,18 +59,25 @@
                                     <label>Date End</label>
                                     <input class="form-control" name="date_end" type="date" placeholder="DD/MM/YYYY" />
                                 </div> -->
-                                <div class="form-group col-lg-4 col-sm-12">
+                                <div class="form-group col-lg-4 col-sm-6">
                                     <label>Project Picture</label>
-                                    <input name="project_picture" type="file" accept="image/*" class="form-control border-dark small mb-3" placeholder="" aria-describedby="basic-addon2">
+                                    <input name="project_picture" id="project_picture" type="file" accept="image/*" class="form-control border-dark small mb-3" placeholder="" aria-describedby="basic-addon2">
                                 </div>
                                
-                                <div class="form-group col-lg-4 col-sm-12">
-                                    <label>Picture Preview</label>
+                                <div class="col-sm-12 col-lg-4">
+                                    <div class="input-group">
+                                        <label>Image Preview</label>
+                                        <br/>
+                                        <img id="preview" src="" alt="" style="width:140px"/> <br>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
-                               
-                            <div class="form-group col-lg-12 col-sm-12">
+                            <div class="form-group col-lg-4 col-sm-12">
+                                    <label>Url</label>
+                                    <input class="form-control" name="url" type="text" placeholder="Url" />
+                            </div>
+                            <div class="form-group col-lg-4 col-sm-12">
                                     <label>Project Description</label>
                                     <textarea class="form-control" name="project_description" name="project_description" rows="2" cols="50"></textarea>
                                 </div>
@@ -97,5 +104,20 @@
     <?php $this->load->view("admin/_partials/js.php") ?>
 
 </body>
+<script>
+ function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
+                reader.onload = function(e) {
+                    $('#preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+
+        $("#project_picture").change(function() {
+            readURL(this);
+        });</script>
 </html>

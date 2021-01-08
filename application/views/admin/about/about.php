@@ -72,13 +72,14 @@
                                 <div class="col-sm-12 col-lg-6">
                                     <p>Upload Profile Photo</p>
                                     <div class="form-group">
-                                        <input id="foto" name="foto" type="file" accept="image/*" onchange="tampilkanPreview(this, 'preview')" class="form-control border-dark small mb-3 my-auto" placeholder="" aria-describedby="basic-addon2">
+                                        <input id="foto" name="foto" type="file" accept="image/*" onchange="previewImage" class="form-control border-dark small mb-3 my-auto" placeholder="" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-lg-6">
                                     <div class="input-group">
                                         <label>Image Preview</label>
-                                        <img id="preview" src="" alt="" /> <br>
+                                        <br/>
+                                        <img id="preview" src="" alt="" style="width:140px"/> <br>
                                     </div>
                                 </div>
                             </div>
@@ -108,5 +109,21 @@
     <?php $this->load->view("admin/_partials/js.php") ?>
 
 </body>
+<script>
+ function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
+                reader.onload = function(e) {
+                    $('#preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+
+        $("#foto").change(function() {
+            readURL(this);
+        });
+</script>
 </html>

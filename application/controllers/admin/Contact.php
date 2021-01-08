@@ -25,6 +25,8 @@ class Contact extends CI_Controller
 				'fb' => $this->input->post('fb'),
 				'ig' => $this->input->post('ig'),
 				'wa' => $this->input->post('wa'),
+				'telepon' => $this->input->post('telepon'),
+				'email' => $this->input->post('email'),
 				'linkedin' => $this->input->post('linkedin'),
 			);
 			if ($this->models->ubahdata2($update, "id", "kontak", 1)) {

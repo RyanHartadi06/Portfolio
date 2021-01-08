@@ -57,6 +57,7 @@
                                         <div class="col-sm-12 col-lg-6">
                                             <div class="input-group">
                                                 <label>Image Preview</label>
+                                                <br />
                                                 <img id="preview" src="" alt="" width="320px" /> <br>
                                             </div>
                                         </div>
@@ -85,5 +86,21 @@
     <?php $this->load->view("admin/_partials/js.php") ?>
 
 </body>
+<script>
+ function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
+                reader.onload = function(e) {
+                    $('#preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+
+        $("#background").change(function() {
+            readURL(this);
+        });
+</script>
 </html>

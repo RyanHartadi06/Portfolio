@@ -3,6 +3,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Home extends CI_Controller
 {
+	public function __construct() {
+        parent::__construct();
+		$this->load->model('Models' , 'models');
+    }
 	public function index()
 	{
 		$data['hero'] = $this->db->query("SELECT * FROM hero")->result_array();
@@ -13,6 +17,11 @@ class Home extends CI_Controller
 		$data['skill'] = $this->db->query("SELECT * FROM skill WHERE  active = '1'")->result_array();
 		$data['category'] = $this->db->query("SELECT * FROM category WHERE  active = '1'")->result_array();
 		$data['portofolio'] = $this->db->query("SELECT portofolio.*, category.name as kategori FROM portofolio , category WHERE category.id =portofolio.id_kategori AND  portofolio.active = '1'")->result_array();
-		$this->load->view('home',$data);
+		$insert = array(
+			'tanggal' => date("Y-m-d"),
+		);
+		$this->models->insert('pengunjung', $insert);
+		
+		$this->load->view('home', $data);
 	}
 }

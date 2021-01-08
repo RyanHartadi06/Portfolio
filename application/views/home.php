@@ -80,7 +80,9 @@
 
 										<li><i class="icofont-rounded-right"></i> <strong>Birthday: </strong> <?= $a['birthday'] ?></li>
 										<li><i class="icofont-rounded-right"></i> <strong>Website: </strong> <?= $a['website'] ?></li>
-										<li><i class="icofont-rounded-right"></i> <strong>Phone: </strong> +62 8125 2989 930</li>
+										<?php foreach($kontak as $k){?>
+										<li><i class="icofont-rounded-right"></i> <strong>Phone: </strong> <?= $k['telepon'] ?></li>
+										<?php } ?>
 										<li><i class="icofont-rounded-right"></i> <strong>City: </strong> <?= $a['kota'] ?></li>
 									</ul>
 								</div>
@@ -263,7 +265,9 @@
 								<p><?= $q['kategori']?></p>
 								<div class="portfolio-links">
 									<a href="<?=base_url()?>uploads/portofolio/<?= $q['gambar']?>" data-gall="portfolioGallery" class="venobox" title="Preview"><i class="bx bx-plus"></i></a>
-									<!-- <a href="https://play.google.com/store/apps/details?id=com.optimaukm&hl=in" title="Go to Playstore"><i class="bx bx-link"></i></a> -->
+									<?php if($q['url'] != ""){?>
+										<a href="<?= $q['url']?>" title="Go to Playstore"><i class="bx bx-link"></i></a>
+									<?php } ?>
 								</div>
 							</div>
 						</div>
@@ -440,13 +444,13 @@
 							<div class="email">
 								<i class="icofont-envelope"></i>
 								<h4>Email:</h4>
-								<p>yudhaoctavian01@gmail.com</p>
+								<p><?=$k['email']?></p>
 							</div>
 
 							<div class="icon">
 								<i class="icofont-phone"></i>
 								<h4>Call:</h4>
-								<p>+62 8125 2989 930</p>
+								<p><?=$k['telepon']?></p>
 							</div>
 
 							<div class="icon">
@@ -486,7 +490,7 @@
 							<div class="whatsapp">
 								<i class="icofont-google-map"></i>
 								<h4>Whatsapp:</h4>
-								<p>+62 8125 2989 930</p>
+								<p><?=$k['wa']?></p>
 							</div>
 
 							<div class="icon">

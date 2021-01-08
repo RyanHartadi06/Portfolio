@@ -52,8 +52,18 @@
                                     <input class="form-control" id="fb" name="fb" type="text" placeholder="fb" value="<?= $k['fb']?>"  />
                                 </div>
                                 <div class="form-group col-lg-6 col-sm-12">
-                                    <label>Instagram</label>
+                                    <label>Email</label>
                                     <input class="form-control" id="ig" name="ig" type="text" placeholder="ig" value="<?= $k['ig']?>" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-lg-6 col-sm-12">
+                                    <label>Telepon</label>
+                                    <input class="form-control" id="telepon" name="telepon" type="text" placeholder="telepon" value="<?= $k['telepon']?>"  />
+                                </div>
+                                <div class="form-group col-lg-6 col-sm-12">
+                                    <label>Email</label>
+                                    <input class="form-control" id="email" name="email" type="email" placeholder="email" value="<?= $k['email']?>" />
                                 </div>
                             </div>
                             <div class="row">

@@ -40,6 +40,7 @@ class Project extends CI_Controller
 					'tanggal' => $this->input->post('date_start'),
 					'deskripsi' => $this->input->post('project_description'),
 					'gambar' => $foto_namaBaru,
+					'url' => $this->input->post('url'),
 					'active' => 1,
 				);
 				// echo json_encode($insert);
@@ -60,6 +61,7 @@ class Project extends CI_Controller
 					'tanggal' => $this->input->post('date_start'),
 					'deskripsi' => $this->input->post('project_description'),
 					'gambar' => '',
+					'url' => $this->input->post('url'),
 					'active' => 1,
 				);
 				if ($this->v->insert('portofolio', $insert)) {
@@ -92,6 +94,7 @@ class Project extends CI_Controller
 				'tanggal' => $this->input->post("date"),
 				'deskripsi' => $this->input->post("project_description"),
 				'active' => $this->input->post("project_status"),
+				'url' => $this->input->post('url'),
 			), "id", "portofolio", $id);
 			if ($update) {
 				$ubahfoto = $_FILES['project_picture']['name'];
